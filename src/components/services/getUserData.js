@@ -35,4 +35,6 @@ export default function getUserData() {
   }
   if (loading) return <Loader />;
   if (error) return "Error!";
+
+  return [user, orgs];
 }

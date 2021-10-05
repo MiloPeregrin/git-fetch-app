@@ -29,4 +29,6 @@ export default function getRepos() {
   }
   if (loading) return <Loader />;
   if (error) return "Error!";
+
+  return data;
 }
