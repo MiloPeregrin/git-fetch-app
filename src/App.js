@@ -8,8 +8,8 @@ import Navbar from "./components/Navbar";
 const App = () => {
   return (
     <>
-      <UserInput />
       <div className={classes.container}>
+        <UserInput />
         <Navbar />
         <DataList />
       </div>
