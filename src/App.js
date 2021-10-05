@@ -1,19 +1,19 @@
 import React from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import classes from "./App.module.css";
 
 import UserInput from "./components/UserInput";
-import RepoButton from "./components/RepoButton";
-import OrgButton from "./components/OrgButton";
-import DataTable from "./components/DataTable";
+import DataList from "./components/DataList";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <div className="app-container">
+    <>
       <UserInput />
-      <RepoButton />
-      <OrgButton />
-      <DataTable />
-    </div>
+      <div className={classes.container}>
+        <Navbar />
+        <DataList />
+      </div>
+    </>
   );
 };
 

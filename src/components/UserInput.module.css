@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #24292f;
+  height: 72px;
+  padding: 0 1rem;
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    height: 58px;
+  }
+  .icon {
+    display: none;
+  }
+}

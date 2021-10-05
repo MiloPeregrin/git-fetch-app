@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: #d8dee4;
+  height: 50px;
+}
+
+.link {
+  padding: 8px 16px;
+  color: black;
+}
+.icon {
+  padding: 2px;
+}
