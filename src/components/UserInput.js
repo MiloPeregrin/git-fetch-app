@@ -13,7 +13,7 @@ const UserInput = () => {
       <Avatar className={classes.icon} src={icon} size="large" />
       <Space direction="vertical">
         <Search
-          placeholder="Git Users Name"
+          placeholder="Search GitHub User"
           allowClear
           enterButton="Search"
           size="large"

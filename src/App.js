@@ -1,17 +1,32 @@
 import React from "react";
+import { Route } from "react-router-dom";
 import classes from "./App.module.css";
 
+import Homepage from "./pages/Homepage";
+import Repositories from "./pages/Repositories";
+import Organisations from "./pages/Organisations";
 import UserInput from "./components/UserInput";
-import DataList from "./components/DataList";
 import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <>
       <div className={classes.container}>
-        <UserInput />
-        <Navbar />
-        <DataList />
+        <header>
+          <UserInput />
+          <Navbar />
+        </header>
+        <main className={classes.main}>
+          <Route exact path="/">
+            <Homepage />
+          </Route>
+          <Route path="/repositories">
+            <Repositories />
+          </Route>
+          <Route path="/organisations">
+            <Organisations />
+          </Route>
+        </main>
       </div>
     </>
   );
