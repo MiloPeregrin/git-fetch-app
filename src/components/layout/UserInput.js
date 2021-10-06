@@ -17,7 +17,7 @@ const UserInput = () => {
         <Avatar
           className={classes.icon}
           src={icon}
-          size="large"
+          size="default"
           // onClick={refreshPage}
         />
       </Link>

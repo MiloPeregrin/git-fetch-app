@@ -1,17 +1,22 @@
 .container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: #24292f;
+  justify-content: space-around;
   height: 72px;
   padding: 0 1rem;
+  width: 900px;
 }
 
 @media screen and (max-width: 400px) {
   .container {
+    justify-content: center;
     height: 58px;
+    padding: 0.5rem;
   }
-  .icon {
+  .container .icon {
+    display: none;
+  }
+  .container a {
     display: none;
   }
 }

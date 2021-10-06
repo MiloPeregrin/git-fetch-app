@@ -1,5 +1,26 @@
+header {
+  display: flex;
+  justify-content: center;
+  background-color: #24292f;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #24292f;
+  width: 100vw;
+  height: 72px;
+}
+
 .main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    height: 58px;
+  }
 }
