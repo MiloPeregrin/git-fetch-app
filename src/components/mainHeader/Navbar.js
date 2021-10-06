@@ -8,6 +8,7 @@ const Navbar = () => {
   return (
     <div className={classes.container}>
       <NavLink
+        disabled
         activeClassName={classes.active}
         className={classes.link}
         to="/repositories"
@@ -16,6 +17,7 @@ const Navbar = () => {
         Repositories
       </NavLink>
       <NavLink
+        disabled
         activeClassName={classes.active}
         className={classes.link}
         to="/organisations"

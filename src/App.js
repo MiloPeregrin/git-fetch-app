@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import classes from "./App.module.css";
 
 import MainHeader from "./components/mainHeader/MainHeader";
@@ -15,15 +15,17 @@ const App = () => {
           <MainHeader />
         </header>
         <main className={classes.main}>
-          <Route exact path="/">
-            <Homepage />
-          </Route>
-          <Route path="/repositories">
-            <Repositories />
-          </Route>
-          <Route path="/organisations">
-            <Organisations />
-          </Route>
+          <Switch>
+            <Route exact path="/">
+              <Homepage />
+            </Route>
+            <Route path="/repositories">
+              <Repositories />
+            </Route>
+            <Route path="/organisations">
+              <Organisations />
+            </Route>
+          </Switch>
         </main>
       </div>
     </>

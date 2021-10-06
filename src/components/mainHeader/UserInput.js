@@ -6,9 +6,9 @@ import classes from "./UserInput.module.css";
 import icon from "./github.png";
 const { Search } = Input;
 
-const refreshPage = () => {
-  window.location.reload();
-};
+// const refreshPage = () => {
+//   window.location.reload();
+// };
 
 const UserInput = () => {
   return (
@@ -18,7 +18,7 @@ const UserInput = () => {
           className={classes.icon}
           src={icon}
           size="large"
-          onClick={refreshPage}
+          // onClick={refreshPage}
         />
       </Link>
 

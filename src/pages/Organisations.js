@@ -1,8 +1,11 @@
 import React from "react";
+import { List } from "antd";
+import classes from "./Organisations.module.css";
 
 const Organisations = () => {
   return (
-    <div>
+    <div className={classes.container}>
+      <List />
       <h1>Organisations</h1>
     </div>
   );
