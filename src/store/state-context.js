@@ -6,14 +6,21 @@ export const StateContextProvider = (props) => {
   const [username, setUsername] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
   const [disabled, setDisabled] = useState(true);
+  const [repos, setRepos] = useState([]);
+  const [orgs, setOrgs] = useState([]);
 
-  // const searchHandler = (user) => {
-  //   setUsername(user.target.value);
-  //   console.log(user);
-  // };
+  const BASE_URL = "https://api.github.com";
+
+  const getData = () => {
+    const url = `${BASE_URL}/users/${username}/repos?per_page=250`;
+    fetch(url).then((response) => {
+      response.json().then((responseJSON) => setRepos(responseJSON));
+    });
+  };
 
   const searchHandler = (user, event) => {
     setUsername(user);
+    getData(username);
     console.log(username);
   };
 
