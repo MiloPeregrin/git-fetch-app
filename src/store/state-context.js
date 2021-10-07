@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const StateContext = React.createContext(null);
 
@@ -16,6 +16,18 @@ export const StateContextProvider = (props) => {
     fetch(url).then((response) => {
       response.json().then((data) => {
         setRepos(data);
+        setDisabled(false);
+      });
+    });
+  };
+
+  // useEffect(() => {}, []);
+
+  const getOrgs = () => {
+    const url = `${BASE_URL}/users/${username}/repos?per_page=250`;
+    fetch(url).then((response) => {
+      response.json().then((data) => {
+        setRepos(data);
       });
     });
   };
@@ -23,6 +35,7 @@ export const StateContextProvider = (props) => {
   const searchHandler = (user, event) => {
     setUsername(user);
     getRepos(username);
+    getOrgs(username);
     console.log(repos);
   };
 
