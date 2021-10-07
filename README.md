@@ -2,4 +2,7 @@
 
 Made with **create-react-app**
 
-- **antd** Ant design for styling
+- **react-router-dom** for routing
+- **antd** & **@ant-design/icons** Ant design for styling
+- **context** & **useContext hooks** for state management
+- **axios**

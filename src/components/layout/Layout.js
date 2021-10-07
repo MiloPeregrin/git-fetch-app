@@ -10,9 +10,7 @@ const Layout = (props) => {
       <header>
         <UserInput />
       </header>
-
       <Navbar />
-
       <main className={classes.main}>{props.children}</main>
     </>
   );

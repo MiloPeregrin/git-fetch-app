@@ -1,25 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Input, Space, Avatar } from "antd";
+import StateContext from "../../store/state-context";
 
 import classes from "./UserInput.module.css";
 import icon from "./github.png";
+
 const { Search } = Input;
 
-// const refreshPage = () => {
-//   window.location.reload();
-// };
-
 const UserInput = () => {
+  const context = useContext(StateContext);
+
   return (
     <div className={classes.container}>
       <Link to="/">
-        <Avatar
-          className={classes.icon}
-          src={icon}
-          size="default"
-          // onClick={refreshPage}
-        />
+        <Avatar className={classes.icon} src={icon} size="default" />
       </Link>
 
       <Space direction="vertical">
@@ -28,7 +23,7 @@ const UserInput = () => {
           allowClear
           enterButton="Search"
           size="large"
-          // onSearch={onSearch}
+          onSearch={"context.searchHandler"}
           style={{ width: 300 }}
         />
       </Space>
