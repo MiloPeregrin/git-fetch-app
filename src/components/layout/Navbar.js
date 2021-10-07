@@ -7,16 +7,15 @@ import { CopyOutlined, TeamOutlined } from "@ant-design/icons";
 
 const Navbar = () => {
   const context = useContext(StateContext);
-  const test = false;
 
   return (
     <div className={classes.container}>
-      {test ? (
+      {context ? (
         <NavLink
           disabled
-          activeClassName={classes.active}
           className={classes.link}
-          to="/repositories"
+          className={classes.disabled}
+          to="#"
         >
           <CopyOutlined size="medium" className={classes.icon} />
           Repositories
@@ -31,20 +30,18 @@ const Navbar = () => {
           Repositories
         </NavLink>
       )}
-      {test ? (
+      {context ? (
         <NavLink
           disabled
-          className={!context.disabled ? "disabled" : null}
-          activeClassName={classes.active}
           className={classes.link}
-          to="/organisations"
+          className={classes.disabled}
+          to="#"
         >
           <TeamOutlined className={classes.icon} />
           Organisations
         </NavLink>
       ) : (
         <NavLink
-          className={!context.disabled ? "disabled" : null}
           activeClassName={classes.active}
           className={classes.link}
           to="/organisations"
