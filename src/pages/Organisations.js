@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { List } from "antd";
 import FetchedDataList from "../components/reusable/FetchedDataList";
 import StateContext from "../store/state-context";
 
@@ -10,9 +9,7 @@ const Organisations = () => {
 
   return (
     <div className={classes.container}>
-      <List />
-      <h1>Organisations</h1>
-      <FetchedDataList data={context.orgs} />
+      <FetchedDataList header={"Organisations"} data={context.orgs} />
     </div>
   );
 };

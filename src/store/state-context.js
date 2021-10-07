@@ -11,17 +11,19 @@ export const StateContextProvider = (props) => {
 
   const BASE_URL = "https://api.github.com";
 
-  const getData = () => {
+  const getRepos = () => {
     const url = `${BASE_URL}/users/${username}/repos?per_page=250`;
     fetch(url).then((response) => {
-      response.json().then((responseJSON) => setRepos(responseJSON));
+      response.json().then((data) => {
+        setRepos(data);
+      });
     });
   };
 
   const searchHandler = (user, event) => {
     setUsername(user);
-    getData(username);
-    console.log(username);
+    getRepos(username);
+    console.log(repos);
   };
 
   const contextValue = {
