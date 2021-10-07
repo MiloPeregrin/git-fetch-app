@@ -5,16 +5,15 @@ import StateContext from "../../store/state-context";
 import classes from "./Navbar.module.css";
 import { CopyOutlined, TeamOutlined } from "@ant-design/icons";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const context = useContext(StateContext);
 
   return (
     <div className={classes.container}>
-      {context ? (
+      {context.disabled ? (
         <NavLink
           disabled
-          className={classes.link}
-          className={classes.disabled}
+          className={`${classes.link} ${classes.disabled}`}
           to="#"
         >
           <CopyOutlined size="medium" className={classes.icon} />
@@ -30,11 +29,10 @@ const Navbar = () => {
           Repositories
         </NavLink>
       )}
-      {context ? (
+      {context.disabled ? (
         <NavLink
           disabled
-          className={classes.link}
-          className={classes.disabled}
+          className={`${classes.link} ${classes.disabled}`}
           to="#"
         >
           <TeamOutlined className={classes.icon} />

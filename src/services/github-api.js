@@ -1,4 +1,3 @@
-// Feel free to use something else than 'axios', for example 'ky'
 import axios from "axios";
 
 const BASE_URL = "https://api.github.com";
