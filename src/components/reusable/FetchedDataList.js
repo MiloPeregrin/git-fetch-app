@@ -5,7 +5,7 @@ import classes from "./FetchedDataList.module.css";
 
 const FetchedDataList = (props) => {
   const { header, dataSource, mark } = props;
-  console.log("dataSource.length is:");
+
   return (
     <List
       header={<div>{header}</div>}
