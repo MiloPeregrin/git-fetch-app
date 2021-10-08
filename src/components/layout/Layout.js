@@ -1,5 +1,5 @@
 import React from "react";
-import UserInput from "./UserInput";
+import Searchbar from "./Searchbar";
 import Navbar from "./Navbar";
 
 import classes from "./Layout.module.css";
@@ -8,7 +8,7 @@ const Layout = (props) => {
   return (
     <>
       <header>
-        <UserInput />
+        <Searchbar />
       </header>
       <Navbar />
       <main className={classes.main}>{props.children}</main>

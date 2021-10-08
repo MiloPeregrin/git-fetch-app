@@ -1,49 +1,42 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const StateContext = React.createContext(null);
 
 export const StateContextProvider = (props) => {
   const [username, setUsername] = useState(null);
-  const [isFetching, setIsFetching] = useState(false);
   const [disabled, setDisabled] = useState(true);
   const [repos, setRepos] = useState([]);
   const [orgs, setOrgs] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
+
+  const handleChange = (e) => {
+    setUsername(e.target.value);
+  };
 
   const BASE_URL = "https://api.github.com";
 
-  const getRepos = () => {
-    const url = `${BASE_URL}/users/${username}/repos?per_page=250`;
-    fetch(url).then((response) => {
-      response.json().then((data) => {
-        setRepos(data);
-        setDisabled(false);
-      });
-    });
+  const handleSearch = async () => {
+    console.log("handleSearch", username);
+    try {
+      const url = `${BASE_URL}/users/${username}/repos?per_page=250`;
+      const result = await axios(url);
+      setRepos(result);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  // useEffect(() => {}, []);
-
-  const getOrgs = () => {
-    const url = `${BASE_URL}/users/${username}/repos?per_page=250`;
-    fetch(url).then((response) => {
-      response.json().then((data) => {
-        setRepos(data);
-      });
-    });
-  };
-
-  const searchHandler = (user, event) => {
-    setUsername(user);
-    getRepos(username);
-    getOrgs(username);
-    console.log(repos);
-  };
+  console.log("setRepos:", repos);
 
   const contextValue = {
     username,
-    isFetching,
     disabled,
-    searchHandler,
+    repos,
+    orgs,
+    isFetching,
+    handleChange,
+    handleSearch,
   };
 
   return (

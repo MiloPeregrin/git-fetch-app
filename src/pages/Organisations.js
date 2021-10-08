@@ -9,7 +9,11 @@ const Organisations = () => {
 
   return (
     <div className={classes.container}>
-      <FetchedDataList header={"Organisations"} data={context.orgs} />
+      <FetchedDataList
+        header={"Organisations"}
+        dataSource={context.orgs}
+        mark={"[ORG]"}
+      />
     </div>
   );
 };

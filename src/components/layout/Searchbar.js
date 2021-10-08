@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { Input, Avatar } from "antd";
 import StateContext from "../../store/state-context";
 
-import classes from "./UserInput.module.css";
+import classes from "./Searchbar.module.css";
 import icon from "./github.png";
 
 const { Search } = Input;
 
-const UserInput = () => {
+const Searchbar = () => {
   const context = useContext(StateContext);
 
   return (
@@ -21,11 +21,13 @@ const UserInput = () => {
         allowClear
         enterButton="Search"
         size="default"
-        onSearch={context.searchHandler}
+        value={context.username}
+        onChange={context.handleChange}
+        onSearch={context.handleSearch}
         style={{ width: 300 }}
       />
     </div>
   );
 };
 
-export default UserInput;
+export default Searchbar;
