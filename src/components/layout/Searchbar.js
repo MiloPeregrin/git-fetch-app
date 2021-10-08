@@ -16,6 +16,7 @@ const Searchbar = () => {
       <Link to="/">
         <Avatar className={classes.icon} src={icon} size="default" />
       </Link>
+
       <Search
         placeholder="Search GitHub User"
         allowClear

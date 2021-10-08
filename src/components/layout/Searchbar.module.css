@@ -1,22 +1,24 @@
 .container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 72px;
-  padding: 0 1rem;
   width: 800px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@media screen and (max-width: 400px) {
+@media only screen and (max-width: 815px) {
+  .container {
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 390px) {
   .container {
     justify-content: center;
-    height: 58px;
-    padding: 0.5rem;
-  }
-  .container .icon {
-    display: none;
   }
   .container a {
+    display: none;
+  }
+  .icon {
     display: none;
   }
 }

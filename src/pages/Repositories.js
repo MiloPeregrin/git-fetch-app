@@ -5,7 +5,6 @@ import StateContext from "../store/state-context";
 const Repositories = () => {
   const context = useContext(StateContext);
 
-  // console.log("repositories:", context.repos);
   return (
     <div>
       <FetchedDataList

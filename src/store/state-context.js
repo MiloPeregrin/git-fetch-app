@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Loader from "./../components/reusable/Loader";
 
 import axios from "axios";
@@ -61,6 +61,7 @@ export const StateContextProvider = (props) => {
     disabled,
     repos,
     orgs,
+    user,
     loading,
     handleChange,
     handleSearch,

@@ -6,13 +6,17 @@ import classes from "./Layout.module.css";
 
 const Layout = (props) => {
   return (
-    <>
+    <div className={classes.container}>
       <header>
-        <Searchbar />
+        <div className={classes.blackBackground}>
+          <Searchbar />
+        </div>
+        <div className={classes.navbar}>
+          <Navbar />
+        </div>
       </header>
-      <Navbar />
-      <main className={classes.container}>{props.children}</main>
-    </>
+      <main className={classes.main}>{props.children}</main>
+    </div>
   );
 };
 
