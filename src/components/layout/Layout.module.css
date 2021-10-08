@@ -17,6 +17,13 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 1rem 0;
+  width: 98vw;
+  height: 80vh;
+  border-style: solid;
+  border-width: 1px;
+  color: #d8dee4;
+  border-radius: 3px;
 }
 
 @media screen and (max-width: 400px) {
@@ -24,3 +31,9 @@ header {
     height: 58px;
   }
 }
+
+/* @media only screen and (min-width: 815px) {
+  .container {
+    width: 800px;
+  }
+} */
