@@ -53,7 +53,7 @@ export const StateContextProvider = (props) => {
   if (error) return "Error!";
 
   // console.log("repositories response", repos);
-  // console.log("git user", user);
+  console.log("git user", user);
   // console.log("orgs response", orgs);
 
   const contextValue = {

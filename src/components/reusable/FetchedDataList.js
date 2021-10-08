@@ -20,7 +20,7 @@ const FetchedDataList = (props) => {
           <List.Item>
             <Typography.Text mark>{mark}</Typography.Text>{" "}
             <a target="_blank" rel="noreferrer" href={item.html_url}>
-              {item.name}
+              {item.name || item.login}
             </a>
           </List.Item>
         )}

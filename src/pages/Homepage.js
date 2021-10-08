@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { List } from "antd";
 import StateContext from "../store/state-context";
+import UserProfile from "../components/reusable/UserProfile";
 
 const Homepage = () => {
   const context = useContext(StateContext);
@@ -11,10 +12,7 @@ const Homepage = () => {
           <List />
         </div>
       ) : (
-        <div className={"userInfo"}>
-          <div className={"userPicture"}>Users Profile Picture</div>
-          <span className={"userName"}>Users Name</span>
-        </div>
+        <UserProfile />
       )}
     </>
   );

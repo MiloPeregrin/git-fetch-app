@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.profilePicture {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
