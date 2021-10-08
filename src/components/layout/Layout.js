@@ -11,7 +11,7 @@ const Layout = (props) => {
         <Searchbar />
       </header>
       <Navbar />
-      <main className={classes.main}>{props.children}</main>
+      <main className={classes.container}>{props.children}</main>
     </>
   );
 };
