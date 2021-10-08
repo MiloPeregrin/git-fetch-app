@@ -48,6 +48,7 @@ export const StateContextProvider = (props) => {
         setLoading(false);
       });
   };
+
   if (loading) return <Loader />;
   if (error) return "Error!";
 
