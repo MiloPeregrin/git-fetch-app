@@ -15,12 +15,27 @@ const UserProfile = () => {
       <span className={"userName"}>
         <Typography.Title level={3}>{context.user.name}</Typography.Title>
       </span>
-      <span className={"userName"}>
-        Blog: <a href={context.user.blog}>{context.user.blog}</a>
-      </span>
-      <span className={"userName"}>{context.user.name}</span>
-      <span className={"userName"}>{context.user.name}</span>
-      <span className={"userName"}>{context.user.avatar_url}</span>
+      <div className={classes.userInfo}>
+        <span>
+          Github :{" "}
+          <a href={context.user.html_url} target="_blank" rel="noreferrer">
+            {context.user.html_url}
+          </a>
+        </span>
+        <span>
+          Email :{" "}
+          <a href={context.user.email} target="_blank" rel="noreferrer">
+            {context.user.email}
+          </a>
+        </span>
+        <span>
+          Blog :{" "}
+          <a href={context.user.blog} target="_blank" rel="noreferrer">
+            {context.user.blog}
+          </a>
+        </span>
+        <span>Location : {context.user.location}</span>
+      </div>
     </div>
   );
 };

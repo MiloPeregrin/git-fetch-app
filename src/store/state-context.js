@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Loader from "./../components/reusable/Loader";
 
 import axios from "axios";
+import ErrorPage from "../pages/ErrorPage";
 
 const StateContext = React.createContext(null);
 
@@ -50,11 +51,11 @@ export const StateContextProvider = (props) => {
   };
 
   if (loading) return <Loader />;
-  if (error) return "Error!";
+  if (error) return <ErrorPage />;
 
   // console.log("repositories response", repos);
-  console.log("git user", user);
-  // console.log("orgs response", orgs);
+  // console.log("git user", user);
+  console.log("orgs response", orgs);
 
   const contextValue = {
     username,

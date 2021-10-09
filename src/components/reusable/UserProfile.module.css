@@ -10,4 +10,11 @@
   width: 100%;
   max-width: 300px;
   height: auto;
+  margin: 5px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
 }

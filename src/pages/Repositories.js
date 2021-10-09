@@ -8,7 +8,7 @@ const Repositories = () => {
   return (
     <div>
       <FetchedDataList
-        header={`Found ${context.repos.length} Repositories`}
+        header={`${context.user.name} has ${context.repos.length} Repositories`}
         dataSource={context.repos}
         mark={"[REPO]"}
       />
