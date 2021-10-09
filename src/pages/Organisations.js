@@ -8,7 +8,9 @@ const Organisations = () => {
   return (
     <div>
       <FetchedDataList
-        header={`${context.user.name} has ${context.orgs.length} Organisations`}
+        header={`${context.user.name || context.user.login} has ${
+          context.orgs.length
+        } Organisations`}
         dataSource={context.orgs}
         mark={"[ORG]"}
       />

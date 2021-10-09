@@ -53,8 +53,8 @@ export const StateContextProvider = (props) => {
   if (loading) return <Loader />;
   if (error) return <ErrorPage />;
 
-  console.log("repositories response", repos);
-  console.log("orgs response", orgs);
+  // console.log("repositories response", repos);
+  // console.log("orgs response", orgs);
   // console.log("git user", user);
 
   const contextValue = {
