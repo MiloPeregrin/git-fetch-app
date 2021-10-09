@@ -10,8 +10,8 @@ export const StateContextProvider = (props) => {
   const [username, setUsername] = useState(null);
   const [disabled, setDisabled] = useState(true);
   const [repos, setRepos] = useState([]);
-  const [user, setUser] = useState([]);
   const [orgs, setOrgs] = useState([]);
+  const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -37,8 +37,8 @@ export const StateContextProvider = (props) => {
           setDisabled(false);
 
           // console.log("repo response", repo);
-          // console.log("user response", user);
           // console.log("orgs response", orgs);
+          // console.log("user response", user);
         })
       )
       .catch((error) => {
@@ -53,9 +53,9 @@ export const StateContextProvider = (props) => {
   if (loading) return <Loader />;
   if (error) return <ErrorPage />;
 
-  // console.log("repositories response", repos);
-  // console.log("git user", user);
+  console.log("repositories response", repos);
   console.log("orgs response", orgs);
+  // console.log("git user", user);
 
   const contextValue = {
     username,
