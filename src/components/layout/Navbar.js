@@ -42,10 +42,10 @@ const Navbar = (props) => {
         <NavLink
           activeClassName={classes.active}
           className={classes.link}
-          to="/organisations"
+          to="/organizations"
         >
           <TeamOutlined className={classes.icon} />
-          Organisations
+          Organizations
         </NavLink>
       )}
     </div>

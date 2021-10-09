@@ -5,7 +5,7 @@ import { StateContextProvider } from "./store/state-context";
 import Layout from "./components/layout/Layout";
 import Homepage from "./pages/Homepage";
 import Repositories from "./pages/Repositories";
-import Organisations from "./pages/Organisations";
+import Organizations from "./pages/Organizations";
 
 const App = () => {
   return (
@@ -19,8 +19,8 @@ const App = () => {
             <Route path="/repositories">
               <Repositories />
             </Route>
-            <Route path="/organisations">
-              <Organisations />
+            <Route path="/organizations">
+              <Organizations />
             </Route>
           </Switch>
         </Layout>

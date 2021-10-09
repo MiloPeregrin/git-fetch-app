@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import FetchedDataList from "../components/reusable/FetchedDataList";
 import StateContext from "../store/state-context";
 
-const Organisations = () => {
+const Organizations = () => {
   const context = useContext(StateContext);
 
   return (
@@ -10,7 +10,7 @@ const Organisations = () => {
       <FetchedDataList
         header={`${context.user.name || context.user.login} has ${
           context.orgs.length
-        } Organisations`}
+        } Organizations`}
         dataSource={context.orgs}
         mark={"[ORG]"}
       />
@@ -18,4 +18,4 @@ const Organisations = () => {
   );
 };
 
-export default Organisations;
+export default Organizations;
