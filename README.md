@@ -8,13 +8,13 @@ The app retrieves and displays the user's repositories and organizations on GitH
 - 404page and try/catch block for dealing with errors
 - Ant design for styling
 - Multiple pages with the use of react-router
-- App deployed on Vercel [DEMO](https://git-fetch-app.vercel.app/)
+- App deployed on Vercel **[DEMO]**(https://git-fetch-app.vercel.app/)
 
-### How to use
+### How to use it
 
 - App has an input field with a button for searching GitHub users
 - Write the username in the input field and click Search
-- he user's profile is loaded and the navbar with two buttons is activated
+- The user's profile is loaded and the navbar with two buttons is activated
 - Click on "Repositories" to show users repositories page
 - Click on "Organizations" to show users organizations page
 - Click on "Github Logo" to go back to the homepage (before data fetch) / users profile (after data fetch)
