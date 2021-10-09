@@ -19,7 +19,11 @@ const FetchedDataList = (props) => {
         renderItem={(item) => (
           <List.Item>
             <Typography.Text mark>{mark}</Typography.Text>{" "}
-            <a target="_blank" rel="noreferrer" href={item.html_url}>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={item.html_url || item.url}
+            >
               {item.name || item.login}
             </a>
           </List.Item>

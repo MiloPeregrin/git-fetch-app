@@ -12,6 +12,7 @@ const Organizations = () => {
           context.orgs.length
         } Organizations`}
         dataSource={context.orgs}
+        orgLink={context.orgs.url}
         mark={"[ORG]"}
       />
     </div>

@@ -15,8 +15,8 @@ The app retrieves and displays the user's repositories and organizations on GitH
 - App has an input field with a button for searching GitHub users
 - Write the username in the input field and click Search
 - The user's profile is loaded and the navbar with two buttons is activated
-- Click on "Repositories" to show users repositories page
-- Click on "Organizations" to show users organizations page
+- Click on "Repositories" to show users repo page with list of links to every repo
+- Click on "Organizations" to show users org page with list of links returning json file with informations about the org.
 - Click on "Github Logo" to go back to the homepage (before data fetch) / users profile (after data fetch)
 
 ### Dependencies
