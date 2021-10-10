@@ -7,7 +7,7 @@ import ErrorPage from "../pages/ErrorPage";
 const StateContext = React.createContext(null);
 
 export const StateContextProvider = (props) => {
-  const [username, setUsername] = useState(null);
+  const [username, setUsername] = useState("");
   const [disabled, setDisabled] = useState(true);
   const [repos, setRepos] = useState([]);
   const [orgs, setOrgs] = useState([]);
