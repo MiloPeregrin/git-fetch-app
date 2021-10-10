@@ -24,26 +24,32 @@ export const StateContextProvider = (props) => {
   const handleSearch = async () => {
     setLoading(true);
     //define URL we want to load from
-    const repos = axios.get(`${BASE_URL}/users/${username}/repos?per_page=250`);
-    const user = axios.get(`${BASE_URL}/users/${username}`);
-    const orgs = axios.get(`${BASE_URL}/users/${username}/orgs`);
+    const repo_url = axios.get(
+      `${BASE_URL}/users/${username}/repos?per_page=250`
+    );
+    const user_url = axios.get(`${BASE_URL}/users/${username}`);
+    const orgs_url = axios.get(`${BASE_URL}/users/${username}/orgs`);
 
     await axios
-      //get request => unresolved promise
-      .all([repos, user, orgs])
+      //get request on the URL => unresolved promise
+      .all([repo_url, user_url, orgs_url])
       .then(
-        axios.spread(function (repo, user, orgs) {
-          setRepos(repo.data);
-          setUser(user.data);
-          setOrgs(orgs.data);
+        axios.spread(function (repo_res, user_res, orgs_res) {
+          setRepos(repo_res.data);
+          setUser(user_res.data);
+          setOrgs(orgs_res.data);
 
-          console.log("repo response", repo);
-          console.log("orgs response", orgs);
+          // console.log("repo_res", repo_res);
+          // console.log("orgs_res", orgs_res);
 
-          console.log("repo response", repo);
-          console.log("orgs response", orgs);
+          console.log("repo_res.data ", repo_res.data);
+          console.log("orgs_res.data", orgs_res.data);
+
+          console.log("repos state", repos);
+          console.log("orgs state", orgs);
         })
       )
+      //POKRACOVANI - DRUHY CALL  .THEN?
       .catch((error) => {
         console.error("Error fetching data: ", error);
         setError(error);
@@ -53,6 +59,8 @@ export const StateContextProvider = (props) => {
         setLoading(false);
       });
   };
+  // console.log("repos state", repos);
+  // console.log("orgs state", orgs);
 
   if (loading) return <Loader />;
   if (error) return <ErrorPage />;
