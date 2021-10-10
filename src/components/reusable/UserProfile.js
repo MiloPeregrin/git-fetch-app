@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import classes from "./UserProfile.module.css";
 import StateContext from "../../store/state-context";
-import { Typography, Image, Card } from "antd";
+import { Typography, Card } from "antd";
 import {
   GithubOutlined,
   MailOutlined,
@@ -17,7 +17,7 @@ const UserProfile = () => {
         bodyStyle={{ padding: 15 }}
         hoverable
         style={{ width: 300 }}
-        cover={<img src={context.user.avatar_url} />}
+        cover={<img alt="github user avatar" src={context.user.avatar_url} />}
       >
         <span className={classes.cardTitle}>
           <Typography.Title level={4}>
