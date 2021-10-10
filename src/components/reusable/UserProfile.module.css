@@ -1,4 +1,4 @@
-.container {
+.cardContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,4 +17,15 @@
   display: flex;
   flex-direction: column;
   justify-content: left;
+}
+
+.cardTitle {
+  text-align: center;
+}
+.cardContainer a {
+  padding: 0;
+}
+
+.cardContainer span {
+  padding: 3px 0;
 }
