@@ -11,6 +11,7 @@ export const StateContextProvider = (props) => {
   const [disabled, setDisabled] = useState(true);
   const [repos, setRepos] = useState([]);
   const [orgs, setOrgs] = useState([]);
+  const [orgsUrl, setOrgsUrl] = useState([]);
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -19,61 +20,70 @@ export const StateContextProvider = (props) => {
     setUsername(e.target.value);
   };
 
-  const BASE_URL = "https://api.github.com";
-
-  const handleSearch = async () => {
+  const handleSearch = () => {
+    const BASE_URL = "https://api.github.com";
     setLoading(true);
-    //define URL we want to load from
-    const repo_url = axios.get(
-      `${BASE_URL}/users/${username}/repos?per_page=250`
-    );
-    const user_url = axios.get(`${BASE_URL}/users/${username}`);
-    const orgs_url = axios.get(`${BASE_URL}/users/${username}/orgs`);
 
-    await axios
-      //get request on the URL => unresolved promise
-      .all([repo_url, user_url, orgs_url])
-      .then(
-        axios.spread(function (repo_res, user_res, orgs_res) {
-          setRepos(repo_res.data);
-          setUser(user_res.data);
-          setOrgs(orgs_res.data);
+    const getData = async () => {
+      const repo_url = axios.get(
+        `${BASE_URL}/users/${username}/repos?per_page=250`
+      );
+      const user_url = axios.get(`${BASE_URL}/users/${username}`);
+      const orgs_url = axios.get(`${BASE_URL}/users/${username}/orgs`);
 
-          // console.log("repo_res", repo_res);
-          // console.log("orgs_res", orgs_res);
+      await axios
+        //get request on the URL => unresolved promise
+        .all([repo_url, user_url, orgs_url])
+        .then(
+          axios.spread(function (repo_res, user_res, orgs_res) {
+            //what to do with response data
+            setRepos(repo_res.data);
+            setUser(user_res.data);
+            setOrgs(orgs_res.data);
+          })
+        )
+        .catch((error) => {
+          console.error("Error fetching data: ", error);
+          setError(error);
+        });
+    };
 
-          console.log("repo_res.data ", repo_res.data);
-          console.log("orgs_res.data", orgs_res.data);
+    const mappedOrgs = orgs.map((item) => item.url);
+    console.log(mappedOrgs);
 
-          console.log("repos state", repos);
-          console.log("orgs state", orgs);
-        })
-      )
-      //POKRACOVANI - DRUHY CALL  .THEN?
-      .catch((error) => {
-        console.error("Error fetching data: ", error);
-        setError(error);
-      })
-      .finally(() => {
-        setDisabled(false);
-        setLoading(false);
-      });
+    const getOrgsUrl = async () => {
+      await axios
+        .all(mappedOrgs.map((l) => axios.get(l)))
+        .then(
+          axios.spread(function (...res) {
+            // all requests are now complete
+            let all = res.map((item) => item.data);
+            setOrgsUrl(all);
+            console.log(all);
+          })
+        )
+        .catch((error) => {
+          console.error("Error fetching data: ", error);
+          setError(error);
+        });
+    };
+
+    getData();
+    getOrgsUrl();
+
+    setDisabled(false);
+    setLoading(false);
   };
-  // console.log("repos state", repos);
-  // console.log("orgs state", orgs);
 
   if (loading) return <Loader />;
   if (error) return <ErrorPage />;
-
-  // console.log("repositories response", repos);
-  // console.log("orgs response", orgs);
-  // console.log("git user", user);
 
   const contextValue = {
     username,
     disabled,
     repos,
     orgs,
+    orgsUrl,
     user,
     loading,
     handleChange,
