@@ -11,7 +11,7 @@ const ErrorPage = () => {
         <Image preview={false} src={errorImage}></Image>
       </div>
       <Typography.Title level={3}>
-        Did you type username correctly?
+        Did you type the username correctly?
       </Typography.Title>
       <Button href="/" type="primary">
         Try Again
