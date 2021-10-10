@@ -48,6 +48,9 @@ export const StateContextProvider = (props) => {
         .catch((error) => {
           console.error("Error fetching data: ", error);
           setError(error);
+        })
+        .finally(() => {
+          setLoading(false);
         });
 
       // console.log("let in DATA", orgData);
