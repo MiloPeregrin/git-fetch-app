@@ -49,31 +49,32 @@ export const StateContextProvider = (props) => {
           console.error("Error fetching data: ", error);
           setError(error);
         });
-      console.log("let in DATA", orgData);
+
+      // console.log("let in DATA", orgData);
       const mappedOrgs = orgData.map((item) => item.url);
-      console.log("let in MAPPED_ORGS", mappedOrgs);
+      // console.log("let in MAPPED_ORGS", mappedOrgs);
 
       await axios
+
         .all(mappedOrgs.map((l) => axios.get(l)))
         .then(
           axios.spread(function (...res) {
             // all requests are now complete
             let all = res.map((item) => item.data);
             setOrgsUrl(all);
-            console.log("all", all);
-            console.log("orgsUrl", orgsUrl);
           })
         )
         .catch((error) => {
           console.error("Error fetching data: ", error);
           setError(error);
+        })
+        .finally(() => {
+          setDisabled(false);
+          setLoading(false);
         });
     };
 
     getData();
-
-    setDisabled(false);
-    setLoading(false);
   };
 
   if (loading) return <Loader />;
