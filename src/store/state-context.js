@@ -23,22 +23,25 @@ export const StateContextProvider = (props) => {
 
   const handleSearch = async () => {
     setLoading(true);
+    //define URL we want to load from
     const repos = axios.get(`${BASE_URL}/users/${username}/repos?per_page=250`);
     const user = axios.get(`${BASE_URL}/users/${username}`);
     const orgs = axios.get(`${BASE_URL}/users/${username}/orgs`);
 
     await axios
+      //get request => unresolved promise
       .all([repos, user, orgs])
       .then(
         axios.spread(function (repo, user, orgs) {
           setRepos(repo.data);
           setUser(user.data);
           setOrgs(orgs.data);
-          setDisabled(false);
 
-          // console.log("repo response", repo);
-          // console.log("orgs response", orgs);
-          // console.log("user response", user);
+          console.log("repo response", repo);
+          console.log("orgs response", orgs);
+
+          console.log("repo response", repo);
+          console.log("orgs response", orgs);
         })
       )
       .catch((error) => {
@@ -46,6 +49,7 @@ export const StateContextProvider = (props) => {
         setError(error);
       })
       .finally(() => {
+        setDisabled(false);
         setLoading(false);
       });
   };
