@@ -12,7 +12,7 @@ Used tools and techniques:
 - 404page and catch block for dealing with errors
 - Ant design for styling
 - Multiple pages with the use of react-router
-- App deployed on Vercel **[DEMO]**(https://git-fetch-app.vercel.app/)
+- App deployed on Vercel **[DEMO](https://git-fetch-app.vercel.app/)**
 
 ### Development challenges
 
