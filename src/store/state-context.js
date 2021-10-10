@@ -22,6 +22,8 @@ export const StateContextProvider = (props) => {
 
   const handleSearch = () => {
     const BASE_URL = "https://api.github.com";
+
+    let orgData;
     setLoading(true);
 
     const getData = async () => {
@@ -40,18 +42,17 @@ export const StateContextProvider = (props) => {
             setRepos(repo_res.data);
             setUser(user_res.data);
             setOrgs(orgs_res.data);
+            orgData = orgs_res.data;
           })
         )
         .catch((error) => {
           console.error("Error fetching data: ", error);
           setError(error);
         });
-    };
+      console.log("let in DATA", orgData);
+      const mappedOrgs = orgData.map((item) => item.url);
+      console.log("let in MAPPED_ORGS", mappedOrgs);
 
-    const mappedOrgs = orgs.map((item) => item.url);
-    console.log(mappedOrgs);
-
-    const getOrgsUrl = async () => {
       await axios
         .all(mappedOrgs.map((l) => axios.get(l)))
         .then(
@@ -59,7 +60,8 @@ export const StateContextProvider = (props) => {
             // all requests are now complete
             let all = res.map((item) => item.data);
             setOrgsUrl(all);
-            console.log(all);
+            console.log("all", all);
+            console.log("orgsUrl", orgsUrl);
           })
         )
         .catch((error) => {
@@ -69,7 +71,6 @@ export const StateContextProvider = (props) => {
     };
 
     getData();
-    getOrgsUrl();
 
     setDisabled(false);
     setLoading(false);

@@ -11,8 +11,7 @@ const Organizations = () => {
         header={`${context.user.name || context.user.login} has ${
           context.orgs.length
         } Organizations`}
-        dataSource={context.orgs}
-        orgLink={context.orgsUrl}
+        dataSource={context.orgsUrl}
         mark={"[ORG]"}
       />
     </div>
